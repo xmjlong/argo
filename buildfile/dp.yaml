@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nettool-deployment
   labels:
-    app: nginx
+    app: nettool
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: nettool
   template:
     metadata:
       labels:
-        app: nginx
+        app: nettool
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.7.8
-        ports:
-        - containerPort: 80
+      - name: nettool
+        image: nettool:v2
