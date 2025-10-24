@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx  # 选择标签为app=nginx的Pods
+  ports:
+    - protocol: TCP
+      port: 80  # Service端口号，外部访问使用此端口号访问Nginx服务。默认80端口。也可以根据需要修改。
+      targetPort: 80  # Pod内部使用的端口号，与containerPort对应。默认80端口。也可以根据需要修改。
+  type: ClusterIP  # 使用LoadBalancer类型以便外部访问，也可以使用NodePort或ClusterIP类型根据需要调整。
